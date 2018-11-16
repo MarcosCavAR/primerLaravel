@@ -10,7 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-function sarasa($chau) {
+
+Route::get('/peliculas/buscar/{nombre}', 'PeliculasController@buscarPeliculaNombre');
+Route::get('/peliculas/{id}', 'PeliculasController@buscarPeliculaId');
+
+
+
+function chau($chau) {
 
   $datosPeli = [
    ['title' => 'Avatar', 'poster' => 'images/avatar.jpg' , 'genre' => 'Ciencia Ficción'],
@@ -28,21 +34,20 @@ function sarasa($chau) {
   $verificar=false;
 
   foreach ($datosPeli as $datos) {
-    if($datos['title'] == $chau) {
+    if($datos == $chau) {
       echo $datos['title'];
       echo $datos['genre'];
       $verificar=true;
     }
-  }
-
-  if($verificar==false) {
-    echo "no se encontró la película";
-  }
+    }
+    if($verificar==false) {
+      echo "no se encontró la película";
+    }
 
 }
 
-Route::get('/pelicula/{chau}', function($chau) {
-    sarasa($chau);
+Route::get('/peliculas/{datosPeli}', function ($chau) {
+    chau($chau);
 });
 
 
