@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/genres/{id}','GenresController@show');
 Route::get('/Actors/search','ActorsController@search');
 Route::get('/Actors/{id}','ActorsController@show');
 Route::get('/Actors','ActorsController@index');

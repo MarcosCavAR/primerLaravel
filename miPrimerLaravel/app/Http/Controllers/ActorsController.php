@@ -20,6 +20,7 @@ class ActorsController extends Controller
     {
       $actorsid = \App\Actor::find($id);
       return view('actors.actor')->with('actores_id', $actorsid);
+      //tmb puede ser return view('actors.actor', ['actor' => $actor] );
 
       }
 
@@ -27,5 +28,6 @@ class ActorsController extends Controller
     {
       $actorsearch = \App\Actor::where('first_name', 'LIKE', '%'.$_GET['buscar'].'%')->orWhere('last_name', 'LIKE', '%'.$_GET['buscar'].'%')->get();
       return view('actors.index')->with('actores', $actorsearch);
+      //o tmb puede ser return vier ('actors.index', compact(['actores']);
     }
 }
